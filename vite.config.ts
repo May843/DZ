@@ -1,8 +1,8 @@
-// Vite configuration optimisée pour performances maximales (8.5/10)
+// Configuration Vite optimisée pour l'application algérienne Dalil.dz
+// 100% locale et indépendante - Performance maximale
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
   server: {
@@ -16,10 +16,11 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react({
-      // Optimisations React SWC basiques
+      // Optimisations React SWC pour performance maximale
+      plugins: [
+        // Configuration pour l'application algérienne
+      ],
     }),
-    mode === 'development' &&
-    componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {
