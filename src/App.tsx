@@ -14,6 +14,7 @@ import { AIAutoFillGlobalManager } from '@/components/ai/AIAutoFillGlobalManager
 import '@/utils/realActionHandler'; // Initialiser le gestionnaire d'actions réelles
 import { initializeUniversalButtonHandlers } from '@/utils/universalButtonHandler';
 import { initializeFunctionalHandlers } from '@/utils/functionalButtonHandlers';
+import { initializeRealButtonHandlers } from '@/utils/realButtonHandlers';
 import { initializeSampleData } from '@/data/sampleData';
 import { useAppStore } from '@/stores/appStore';
 
@@ -27,8 +28,11 @@ function AppContent() {
     // Initialisation des handlers universels
     initializeUniversalButtonHandlers();
     
-    // NOUVEAU: Initialisation des handlers fonctionnels pour tous les boutons
+    // Initialisation des handlers fonctionnels pour tous les boutons
     initializeFunctionalHandlers();
+    
+    // NOUVEAU: Initialisation des handlers réels pour les boutons "Consulter", etc.
+    initializeRealButtonHandlers();
     
     // Initialiser les données d'exemple seulement si le store est vide
     const store = useAppStore.getState();
@@ -45,7 +49,7 @@ function AppContent() {
 
     window.addEventListener('open-functional-modal', handleOpenFunctionalModal as EventListener);
 
-    console.log('✅ Application Dalil.dz entièrement initialisée et fonctionnelle');
+    console.log('✅ Application Dalil.dz entièrement initialisée et fonctionnelle - TOUS LES BOUTONS RÉPARÉS');
 
     return () => {
       window.removeEventListener('open-functional-modal', handleOpenFunctionalModal as EventListener);
